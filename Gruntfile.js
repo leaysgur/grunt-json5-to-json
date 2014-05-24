@@ -43,6 +43,14 @@ module.exports = function(grunt) {
         },
         src: ['test/**/*.json5'],
         dest: 'tmp/all/'
+      },
+      case3: {
+        options: {
+          space: 0
+        },
+        files: {
+          'tmp/files/sample.json': 'test/sample.json5'
+        }
       }
     }
   });
