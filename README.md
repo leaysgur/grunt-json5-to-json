@@ -29,7 +29,7 @@ grunt.initConfig({
       replacer: null,
       space: 2
     },
-    case2: {
+    target: {
       options: {
         space: 4
       },
