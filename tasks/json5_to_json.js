@@ -22,6 +22,11 @@ module.exports = function(grunt) {
     var fs = require('fs');
     var chalk = require('chalk');
     var JSON5 = require('json5');
+    var cnst = {
+        windows:   'win32',
+        file:      'file',
+        directory: 'directory'
+    };
 
     grunt.registerMultiTask('json5_to_json', 'Convert json5 to json.', function() {
         var kindOf = grunt.util.kindOf;
@@ -46,7 +51,7 @@ module.exports = function(grunt) {
             isExpandedPair = filePair.orig.expand || false;
 
             filePair.src.forEach(function(src) {
-                if (detectDestType(filePair.dest) === 'directory') {
+                if (detectDestType(filePair.dest) === cnst.directory) {
                     dest = (isExpandedPair) ? filePair.dest : unixifyPath(path.join(filePair.dest, src));
                 } else {
                     dest = filePair.dest;
@@ -87,16 +92,18 @@ module.exports = function(grunt) {
         grunt.log.writeln();
     });
 
-    var detectDestType = function(dest) {
+
+    // Private functions.
+    function detectDestType(dest) {
         if (grunt.util._.endsWith(dest, '/')) {
-            return 'directory';
+            return cnst.directory;
         } else {
-            return 'file';
+            return cnst.file;
         }
     };
 
-    var unixifyPath = function(filepath) {
-        if (process.platform === 'win32') {
+    function unixifyPath(filepath) {
+        if (process.platform === cnst.win32) {
             return filepath.replace(/\\/g, '/');
         } else {
             return filepath;
