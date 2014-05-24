@@ -1,4 +1,13 @@
 /*
+ * grunt-contrib-copy
+ * http://gruntjs.com/
+ *
+ * Copyright (c) 2014 Chris Talkington, contributors
+ * Licensed under the MIT license.
+ * https://github.com/gruntjs/grunt-contrib-copy/blob/master/LICENSE-MIT
+ */
+
+/*
  * grunt-json5-to-json
  * https://github.com/leader22/grunt-json5-to-json
  *
