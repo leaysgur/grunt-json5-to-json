@@ -36,7 +36,7 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin", "json", "json5"
   ],
   "dependencies": {
     "json5": "^0.2.0",
