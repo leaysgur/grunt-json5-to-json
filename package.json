@@ -1,7 +1,7 @@
 {
   "name": "grunt-json5-to-json",
   "description": "Convert json5 to json.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/leader22/grunt-json5-to-json",
   "author": {
     "name": "leader22",
