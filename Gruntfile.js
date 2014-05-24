@@ -15,8 +15,7 @@ module.exports = function(grunt) {
     jshint: {
       all: [
         'Gruntfile.js',
-        'tasks/*.js',
-        '<%= nodeunit.tests %>'
+        'tasks/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
@@ -25,7 +24,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp', 'test/to'],
+      tests: ['tmp'],
     },
 
     // Configuration to be run (and then tested).
@@ -35,23 +34,17 @@ module.exports = function(grunt) {
         space: 4
       },
       case1: {
-        src: 'test/from/sample.json5',
-        dest: 'test/to/sample.json'
+        src: 'test/sample.json5',
+        dest: 'tmp/sample.json'
       },
       case2: {
         options: {
           space: 2
         },
-        src: ['test/from/**/*.json5'],
-        dest: 'test/to/all/'
+        src: ['test/**/*.json5'],
+        dest: 'tmp/all/'
       }
-    },
-
-    // Unit tests.
-    nodeunit: {
-      tests: ['test/*_test.js']
     }
-
   });
 
   // Actually load this plugin's task(s).
@@ -60,13 +53,12 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'json5_to_json', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'json5_to_json']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['jshint']);
 
 };
