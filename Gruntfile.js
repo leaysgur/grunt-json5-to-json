@@ -25,26 +25,25 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      tests: ['tmp', 'test/to'],
     },
 
     // Configuration to be run (and then tested).
     json5_to_json: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      options: {
+        replacer: null,
+        space: 4
       },
-      custom_options: {
+      case1: {
+        src: 'test/from/sample.json5',
+        dest: 'test/to/sample.json'
+      },
+      case2: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          space: 2
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        src: ['test/from/**/*.json5'],
+        dest: 'test/to/all/'
       }
     },
 

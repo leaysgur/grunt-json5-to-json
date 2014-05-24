@@ -37,5 +37,9 @@
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+  "dependencies": {
+    "json5": "^0.2.0",
+    "chalk": "^0.4.0"
+  }
 }
