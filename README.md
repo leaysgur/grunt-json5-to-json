@@ -63,3 +63,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 - 0.1.0: pre release.
 - 0.1.1: npm publish.
 - 0.1.2: Refactor some code.
+- 0.1.3: Grunt log error now display which file is having an issue when parsing.(by [wiredmax](https://github.com/wiredmax))

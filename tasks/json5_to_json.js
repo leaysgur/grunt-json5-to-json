@@ -69,7 +69,7 @@ module.exports = function(grunt) {
                       obj = JSON5.parse(json5);
                       json = JSON.stringify(obj, options.replacer, options.space);
                     } catch(e) {
-                      grunt.log.error(e + ' in ' src);
+                      grunt.log.error(e + ' in ' + src);
                       return;
                     }
 
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
         } else {
             return cnst.file;
         }
-    };
+    }
 
     function unixifyPath(filepath) {
         if (process.platform === cnst.win32) {
@@ -108,5 +108,5 @@ module.exports = function(grunt) {
         } else {
             return filepath;
         }
-    };
+    }
 };
