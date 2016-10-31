@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                     }
 
                     dest = dest.split(path.extname(dest))[0] + '.json';
-                    grunt.file.write(dest, json, options.encoding);
+                    grunt.file.write(dest, json, options);
 
                     tally.files++;
                 }
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
     }
 
     function unixifyPath(filepath) {
-        if (process.platform === cnst.win32) {
+        if (process.platform === cnst.windows) {
             return filepath.replace(/\\/g, '/');
         } else {
             return filepath;
