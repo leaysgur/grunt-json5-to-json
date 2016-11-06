@@ -64,7 +64,7 @@ module.exports = function(grunt) {
                     tally.dirs++;
                 } else {
                     grunt.verbose.writeln('Converting ' + chalk.cyan(src) + ' -> ' + chalk.cyan(dest));
-                    json5 = grunt.file.read(src, options.encoding);
+                    json5 = grunt.file.read(src, options);
                     try {
                       obj = JSON5.parse(json5);
                       json = JSON.stringify(obj, options.replacer, options.space);
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
                     }
 
                     dest = dest.split(path.extname(dest))[0] + '.json';
-                    grunt.file.write(dest, json, options.encoding);
+                    grunt.file.write(dest, json, options);
 
                     tally.files++;
                 }
