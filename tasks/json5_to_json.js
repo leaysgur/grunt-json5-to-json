@@ -103,7 +103,7 @@ module.exports = function(grunt) {
     }
 
     function unixifyPath(filepath) {
-        if (process.platform === cnst.win32) {
+        if (process.platform === cnst.windows) {
             return filepath.replace(/\\/g, '/');
         } else {
             return filepath;
